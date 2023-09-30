@@ -14,7 +14,7 @@ export default function PopularMovies ({popular}) {
       </div>
       <div className="flex gap-8">
         {popular.slice(0, 3).map((movie, i) => (
-          <div key={i} className={i === 2 ? "h-[170px] lg:block hidden w-full" : "h-[170px] w-full"}>
+          <div key={i} className={i === 2 ? "h-[190px] lg:block hidden w-full" : "h-[190px] w-full"}>
             <ContentCard section='popular' item={movie} />
           </div>
         ))}

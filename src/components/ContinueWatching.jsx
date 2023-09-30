@@ -18,7 +18,7 @@ export default function ContinueWatching ({continueWatching}) {
       </div>
       <div className="flex gap-8">
         {continueWatching.slice(2, 4).map((movie, i) => (
-          <div key={i} className="h-[170px] w-full">
+          <div key={i} className="h-[200px] w-full">
             <ContentCard section={i == 0 ? 'continue' : 'playing'} item={movie} />
           </div>
         ))}

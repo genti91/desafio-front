@@ -16,9 +16,9 @@ export default function NewTrailers ({upcoming}) {
       </div>
       <div className='absolute right-[-14px] top-28 flex items-center justify-center h-7 w-7 bg-[#C4C4C4] rounded-full'><Image src={playArrow} className='rotate-180 ml-[-3px]' alt="playArrow" /></div>
       
-      <div className='w-full h-[328px] overflow-y-scroll'>
+      <div className='w-full h-[388px] overflow-y-scroll'>
         {upcoming.map((movie, i) => (
-          <div key={i} className='w-full h-[150px] mb-7'>
+          <div key={i} className='w-full h-[180px] mb-7'>
             <ContentCard section='new-trailers' item={movie} />
           </div>
         ))}

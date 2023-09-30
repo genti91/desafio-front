@@ -1,6 +1,5 @@
 'use client'
 import logo from '../assets/logo.svg';
-import searchIcon from '../assets/searchIcon.svg';
 import notificationIcon from '../assets/notificationIcon.svg';
 import dotsIcon from '../assets/dotsIcon.svg';
 import profileArrow from '../assets/profileArrow.svg';
@@ -9,6 +8,7 @@ import navIndicator from '../assets/navIndicator.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import SearchBar from './SearchBar';
 
 export default function NavBar () {
   const currentPath = usePathname();
@@ -26,7 +26,7 @@ export default function NavBar () {
         </a>
         <div className="md:flex md:gap-9 hidden">
           {navItems.map((item) => 
-            currentPath === item.path ? 
+            currentPath === item.path || (item.path === '/' && currentPath.includes('search'))  ? 
             <Link key={item.label} href={item.path} className='text-white cursor-pointer flex justify-center'>
               {item.label}
               <Image className='absolute bottom-0' src={navIndicator} alt="navIndicator" />
@@ -39,7 +39,7 @@ export default function NavBar () {
         </div>
       </div>
       <div className=' flex gap-7'>
-        <Image src={searchIcon} alt="searchIcon" />
+        <SearchBar />
         <Image src={notificationIcon} alt="notificationIcon" />
         <Image src={dotsIcon} alt="dotsIcon" />
         <a className=' flex gap-2'>
