@@ -4,7 +4,7 @@ export async function GET() {
     const getOptions = {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MzY2MWJlOTA2NmJjMzljZGRiZDM5YTliMWVjMmNmNiIsInN1YiI6IjY1MTVmMmM5YzUwYWQyMDEyYzE3ZDFiNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qxU1ppnfL71CfYejQ8xwsMGCYpcTQ0_u8hwK2FbZoiA',
+        'Authorization': 'Bearer '+process.env.TMDB_API_KEY,
       },
     }
     var popular = await fetch(url+'/popular?language=en-US&page=1', getOptions).then(res => res.json()).then(res => res.results.slice(0,5))

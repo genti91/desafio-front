@@ -13,7 +13,7 @@ export default async function Home() {
 
 const getData = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/movies', {cache: "no-store"})
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL+'/api/movies', {cache: "no-store"})
     return res.json()
   } catch (err) {
     console.log(err)

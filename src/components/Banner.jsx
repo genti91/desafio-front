@@ -3,6 +3,7 @@ import playArrow from '../assets/playArrow.svg'
 import friendsWatching from '../assets/friendsWatching.svg'
 
 export default function Banner ({randomMovie}) {
+  if (!randomMovie) return <div className='mx-auto text-5xl'>Unable to load movies</div>
   const image = 'https://image.tmdb.org/t/p/original'+randomMovie.backdrop_path
   return (
     <div className="w-full flex flex-col justify-between p-4 pt-3 h-[134px] bg-black rounded-[20px] bg-cover bg-center" style={{backgroundImage: `url(${image})`}}>
