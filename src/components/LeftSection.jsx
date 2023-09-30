@@ -1,10 +1,10 @@
 import FavouriteGenres from "./FavouriteGenres"
 import NewTrailers from "./NewTrailers"
 
-export default () => {
+export default ({upcoming}) => {
   return (
-    <div className="w-[28vw] flex flex-col h-full border-r border-[#323232]">
-      <NewTrailers />
+    <div className="w-[25rem] hidden flex-col h-full border-r border-[#323232] 2xl:flex">
+      <NewTrailers upcoming={upcoming} />
       <FavouriteGenres />
     </div>
   )

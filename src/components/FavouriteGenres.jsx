@@ -3,7 +3,7 @@ import addGenres from '../assets/addGenres.svg'
 
 export default () => {
   return (
-    <div className=" bg-[#1E1E21] w-full h-full pt-12 px-20 flex flex-col gap-5">
+    <div className=" bg-[#1E1E21] w-full h-full pt-12 px-14 flex flex-col gap-5">
       <p className="font-bold text-lg">Favourite genres</p>
       <div className="flex gap-5 flex-wrap">
         {[{name:"Action", color:'#8769FF'}, {name:"Western", color:'#F36F45'}, {name:"Adventures", color:'#8769FF'}, {name:"Drama", color:'#F36F45'}, {name:"Sci-Fie", color:'#61D1EA'}].map((genre, index) => (
