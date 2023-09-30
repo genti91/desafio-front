@@ -2,7 +2,7 @@ import Image from "next/image"
 import allMovies from "../assets/allMovies.svg"
 import ContentCard from "./ContentCard"
 
-export default ({continueWatching}) => {
+export default function ContinueWatching ({continueWatching}) {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex justify-between">

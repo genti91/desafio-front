@@ -4,7 +4,7 @@ import viewsIcon from '../assets/viewsIcon.svg'
 import star from '../assets/star.svg'
 import fire from '../assets/fire.svg'
 
-export default ({item, section}) => {
+export default function ContentCard ({item, section}) {
   let image = 'https://image.tmdb.org/t/p/original'+item.backdrop_path
   return (
     <div className="w-full bg-cover bg-center h-full rounded-[20px]" style={{backgroundImage: `url(${image})`}} >

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import playArrow from '../assets/playArrow.svg'
 import friendsWatching from '../assets/friendsWatching.svg'
 
-export default ({randomMovie}) => {
+export default function Banner ({randomMovie}) {
   const image = 'https://image.tmdb.org/t/p/original'+randomMovie.backdrop_path
   return (
     <div className="w-full flex flex-col justify-between p-4 pt-3 h-[134px] bg-black rounded-[20px] bg-cover bg-center" style={{backgroundImage: `url(${image})`}}>

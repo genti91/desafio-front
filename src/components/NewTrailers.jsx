@@ -3,7 +3,7 @@ import sortArrows from '../assets/sortArrows.svg'
 import ContentCard from './ContentCard'
 import playArrow from '../assets/playArrow.svg'
 
-export default ({upcoming}) => {
+export default function NewTrailers ({upcoming}) {
   return (
     <div className="p-12 px-14 flex flex-col gap-7 relative">
       <div className="flex justify-between">

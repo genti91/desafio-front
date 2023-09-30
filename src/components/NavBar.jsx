@@ -10,7 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export default () => {
+export default function NavBar () {
   const currentPath = usePathname();
   const navItems = [
     { label: 'Movies', path: '/' },

@@ -1,7 +1,7 @@
 import Image from "next/image"
 import addGenres from '../assets/addGenres.svg'
 
-export default () => {
+export default function FavouriteGenres () {
   return (
     <div className=" bg-[#1E1E21] w-full h-full pt-12 px-14 flex flex-col gap-5">
       <p className="font-bold text-lg">Favourite genres</p>
