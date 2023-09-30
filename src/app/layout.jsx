@@ -13,8 +13,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css?family=Axiforma" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Axiforma" rel="stylesheet"/>
       </head>
       <body className={quicksand.className}>
         <div className='h-screen'>
