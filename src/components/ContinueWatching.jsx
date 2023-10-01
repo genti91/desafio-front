@@ -16,7 +16,7 @@ export default function ContinueWatching ({continueWatching}) {
           <Image src={allMovies} alt="All movies" />
         </div>
       </div>
-      <div className="flex gap-8">
+      <div className="flex gap-8 lm:flex-nowrap flex-wrap">
         {continueWatching.slice(2, 4).map((movie, i) => (
           <div key={i} className="h-[200px] w-full">
             <ContentCard section={i == 0 ? 'continue' : 'playing'} item={movie} />

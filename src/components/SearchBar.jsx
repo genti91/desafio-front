@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import searchIcon from '../assets/searchIcon.svg';
 import { useState } from 'react';
-import './test.css'
 import { useRouter } from 'next/navigation';
 
 export default function SearchBar() {
@@ -34,7 +33,7 @@ export default function SearchBar() {
           onMouseLeave={toggleExpanded}
           onChange={(e) => setValue(e.target.value)}
           type="text"
-          className="absolute right-0 bottom-[-10px] mr-9 mt-5 w-40 p-2 bg-transparent text-white border-b-2 border-white focus:outline-none"
+          className="absolute right-0 bottom-[-10px] mr-9 mt-5 sm:w-40 w-24 p-2 bg-transparent text-white border-b-2 border-white focus:outline-none"
           placeholder="Search..."
           onKeyDown={handleKeyDown}
         />

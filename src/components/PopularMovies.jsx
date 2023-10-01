@@ -12,7 +12,7 @@ export default function PopularMovies ({popular}) {
           <Image src={allMovies} alt="All movies" />
         </div>
       </div>
-      <div className="flex gap-8">
+      <div className="flex gap-8 md:flex-nowrap flex-wrap">
         {popular.slice(0, 3).map((movie, i) => (
           <div key={i} className={i === 2 ? "h-[190px] lg:block hidden w-full" : "h-[190px] w-full"}>
             <ContentCard section='popular' item={movie} />

@@ -4,7 +4,7 @@ import PopularMovies from "./PopularMovies"
 
 export default function RightSection ({popular, continueWatching}) {
   return (
-    <div className="2xl:w-[72vw] w-full flex flex-col h-full py-12 pr-16 pl-24 gap-[38px]">
+    <div className="2xl:w-[72vw] w-full flex flex-col py-10 2xl:pr-16 2xl:pl-24 xs:px-16 px-3 gap-[38px]">
       <Banner randomMovie={popular[Math.floor(Math.random()*popular.length)]} />
       <ContinueWatching continueWatching={continueWatching}/>
       <PopularMovies popular={popular} />
