@@ -13,7 +13,7 @@ export default function LeftSection ({upcoming}) {
         <NewTrailers setIsExpanded={setIsExpanded} upcoming={upcoming} />
         <FavouriteGenres />
       </div>
-      <div className={ !isExpanded ? 'z-40 fixed justify-center left-0 w-screen 2xl:hidden h-screen bg-[#17171B] ease-in-out duration-300' : 'z-40 h-screen lg:hidden fixed left-[-120%] w-screen p-10 ease-in-out duration-300'}>
+      <div className={ !isExpanded ? 'z-30 fixed justify-center left-0 w-screen 2xl:hidden h-screen bg-[#17171B] ease-in-out duration-300' : 'z-40 h-screen lg:hidden fixed left-[-120%] w-screen p-10 ease-in-out duration-300'}>
         <div className={"w-full flex flex-col h-full mx-auto top"}>
           <NewTrailers setIsExpanded={setIsExpanded} upcoming={upcoming} />
           <FavouriteGenres />
