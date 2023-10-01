@@ -2,15 +2,21 @@ import Image from 'next/image'
 import sortArrows from '../assets/sortArrows.svg'
 import ContentCard from './ContentCard'
 import playArrow from '../assets/playArrow.svg'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function NewTrailers ({upcoming, setIsExpanded}) {
   const [sort , setSort] = useState('Today')
   const sortOptions = ['Today', 'New', 'Old']
   const [movies, setMovies] = useState(upcoming)
   const [showOptions, setShowOptions] = useState(false)
+  const sortRef = useRef(null)
   const toggleOptions = () => {
     setShowOptions(!showOptions)
+  }
+  const handleClickOutside = (event) => {
+    if (sortRef.current && !sortRef.current.contains(event.target)) {
+      setShowOptions(false);
+    }
   }
   useEffect(() => {
     if (sort === 'Today') {
@@ -20,13 +26,15 @@ export default function NewTrailers ({upcoming, setIsExpanded}) {
     } else if (sort === 'Old') {
       setMovies([...upcoming].sort((a, b) => new Date(a.release_date) - new Date(b.release_date)))
     }
+    document.addEventListener('click', handleClickOutside)
+    return () => { document.removeEventListener('click', handleClickOutside)}
   }, [sort])
   return (
     <div className='flex justify-center'>
       <div className="sm:p-12 p-8 px-14 flex flex-col gap-7 relative w-[28rem]">
         <div className="flex justify-between">
           <p className="font-bold text-lg">New trailers</p>
-          <div className="flex gap-3 relative">
+          <div className="flex gap-3 relative" ref={sortRef}>
             <p className="text-[#606265]">Sort By</p>
             <div onClick={toggleOptions} className="flex gap-3 relative cursor-pointer">
               <p>{sort}</p>
