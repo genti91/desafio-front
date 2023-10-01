@@ -10,9 +10,9 @@ export async function GET(req) {
       },
     }
     var movies = await fetch(url, getOptions).then(res => res.json()).then(data => data.results)
-    return Response.json(movies)
+    return Response.json({params, movies})
   } catch (error) {
     console.log(error)
-    return Response.json([])
+    return Response.json({error, movies: []})
   }
 }

@@ -1,11 +1,6 @@
-//'use client'
 import ContentCard from '@/components/ContentCard'
-//import { useSearchParams } from 'next/navigation' 
 
 export default async function Search({searchParams}) {
-  // const searchParams = useSearchParams()
-  // const search = searchParams.get('s')
-  console.log('searchParams:', searchParams.s)
   let data = await getData(searchParams.s)
   return (
     <div className="h-[90%] flex justify-center py-10">
@@ -15,7 +10,6 @@ export default async function Search({searchParams}) {
         {data.map((movie, index) => {
           return (
             <div key={index} className='h-[150px] w-80'>
-              {console.log(movie.backdrop_path)}
               <ContentCard section='search' item={movie} key={index} />
             </div>
           )
@@ -27,10 +21,9 @@ export default async function Search({searchParams}) {
 }
 
 const getData = async (search) => {
-  console.log('search:', search)
   try {
-    const res = await fetch(process.env.NEXT_PUBLIC_API_URL+'/api/search/?s='+search, {cache: "no-store"})
-    return res.json()
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL+'/api/search/?s='+search, {cache: "no-store"}).then(res => res.json())
+    return res.movies
   } catch (err) {
     console.log(err)
     return []
