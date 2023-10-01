@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import playArrow from '../assets/playArrow.svg'
 import viewsIcon from '../assets/viewsIcon.svg'
@@ -11,18 +12,32 @@ import progressBar from '../assets/progressBar.svg'
 import settings from '../assets/settings.svg'
 import volume from '../assets/volume.svg'
 import friendsWatching from '../assets/friendsWatching.svg'
+import { useState } from 'react'
 
 export default function ContentCard ({item, section}) {
   let image = 'https://image.tmdb.org/t/p/original'+item.backdrop_path
+  const [hover, setHover] = useState(false)
+  const toggleHover = () => {
+    setHover(!hover)
+  }
   return (
     <div className="w-full bg-cover bg-center h-full rounded-[20px] bg-gray-800" style={{backgroundImage: `url(${image})`}} >
+      <div className={'cursor-pointer w-full h-full px-[27px] py-[21px] bg-[#333333E5] rounded-[20px] ' + (!hover && 'hidden')} onMouseLeave={() => setHover(false)} onClick={toggleHover}>
+        <p className='font-bold max-w-[220px] truncate text-[14px]'>{item.original_title}</p>
+        {section !== 'search' ? <><span className='mr-1 text-[#CACACA] text-[10px] font-medium'>Country:</span><span className='mr-1 text-[10px] text-[#CACACA]'>{item.production_countries[0].name === 'United States of America' ? 'United States' : item.production_countries[0].name}</span></>
+        :
+        <p className='text-[10px] text-[#ADADAD]'>{item.release_date}</p>
+        }
+        <p className={'text-xs mt-1 overflow-ellipsis overflow-hidden ' + (section === 'search'?'h-16':'h-20')}>{item.overview}</p>
+      </div>
+      <div className={'w-full h-full ' + (hover && 'hidden')} >
       {section !== 'playing' ?
-      <div className='h-[64%] w-full px-6 py-3'>
+      <div className='h-[64%] w-full px-6 py-3' onMouseEnter={toggleHover}>
         {section === 'continue' && <div className='flex font-semibold text-[10px] gap-1 bg-[#FFFFFF60] backdrop-blur-sm w-max px-[10px] py-[3px] rounded-[20px]'>#1 Trending <Image src={fire} alt="fire" /></div>}
         <div className='flex gap-2 ml-auto w-max font-semibold text-[10px]'>
           {section === 'new-trailers' && <>
           <Image src={viewsIcon} alt="viewsIcon" />
-          {Math.floor(Math.random()*10)}.{Math.floor(Math.random()*10)} M
+          {item.id.toString().slice(0, 2).split('').join('.')} M
           </>}
         </div>
         {!item.backdrop_path && 
@@ -52,9 +67,9 @@ export default function ContentCard ({item, section}) {
           <button className='flex items-center justify-center h-7 w-7 bg-[#C4C4C4] rounded-full'><Image src={section === 'playing' ? pause : playArrow} alt="playArrow" /></button>
           {section === 'playing' && 
           <>
-            <p className='text-[10px] text-[#ADADAD]'>32:47</p>
+            <p className='text-[10px] xxs:mx-0 mr-[-8px] text-[#ADADAD]'>32:47</p>
             <Image src={progressBar} alt="progressBar" />
-            <p className='text-[10px] text-[#ADADAD]'>2:34:28</p>
+            <p className='text-[10px] xxs:ml-0 ml-[-8px] text-[#ADADAD]'>2:34:28</p>
           </>
           }
           <div className=' text-[11px]'>
@@ -77,6 +92,7 @@ export default function ContentCard ({item, section}) {
             </div>
           }
         </div>
+      </div>
       </div>
     </div>
   )
