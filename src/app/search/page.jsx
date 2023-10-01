@@ -13,7 +13,7 @@ export default async function Home() {
       <div className='flex flex-wrap gap-10 w-[80%] justify-center'>
         {data.map((movie, index) => {
           return (
-            <div className='h-[150px] w-80'>
+            <div key={index} className='h-[150px] w-80'>
               {console.log(movie.backdrop_path)}
               <ContentCard section='search' item={movie} key={index} />
             </div>
