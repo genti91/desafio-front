@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import ContentCard from '@/components/ContentCard'
 
 export default async function Search({searchParams}) {
