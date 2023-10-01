@@ -3,7 +3,9 @@ import ContentCard from '@/components/ContentCard'
 import { useSearchParams } from 'next/navigation' 
 
 export default async function Home() {
-  let data = await getData()
+  const searchParams = useSearchParams()
+  const search = searchParams.get('s')
+  let data = await getData(search)
   return (
     <div className="h-[90%] flex justify-center py-10">
       {data.length === 0 ? <div className='text-3xl'>No movies found</div>
@@ -23,9 +25,7 @@ export default async function Home() {
   )
 }
 
-const getData = async () => {
-  const searchParams = useSearchParams()
-  const search = searchParams.get('s')
+const getData = async ({search}) => {
   try {
     const res = await fetch(process.env.NEXT_PUBLIC_API_URL+'/api/search/?s='+search, {cache: "no-store"})
     return res.json()
