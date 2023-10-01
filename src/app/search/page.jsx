@@ -1,4 +1,3 @@
-export const dynamic = 'force-dynamic'
 import ContentCard from '@/components/ContentCard'
 
 export default async function Search({searchParams}) {
@@ -22,6 +21,7 @@ export default async function Search({searchParams}) {
 }
 
 const getData = async (search) => {
+  'use server'
   try {
     const res = await fetch(process.env.NEXT_PUBLIC_API_URL+'/api/search/?s='+search, {cache: "no-store"}).then(res => res.json())
     return res.movies
