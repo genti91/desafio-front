@@ -26,7 +26,7 @@ export default function FavouriteGenres () {
   }
   return (
     <div className="w-full h-full flex justify-center bg-[#1E1E21]">
-      <div className="h-full pt-12 px-14 flex flex-col gap-5">
+      <div className="h-full py-10 px-14 flex flex-col gap-5">
         <p className="font-bold text-lg">Favourite genres</p>
         <div className="flex gap-5 flex-wrap">
           {selectedGenres.map((genre, index) => (

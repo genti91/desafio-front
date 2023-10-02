@@ -23,7 +23,7 @@ export default function NavBar () {
     { label: 'Plans', path: '/plans' },
   ];
   return (
-    <nav className="flex justify-between items-center h-[10%]  sm:px-12 px-5 text-black relative" style={{borderBottom: '3px solid', borderImage: 'linear-gradient(270deg, rgba(255, 255, 255, 0.00) 0%, rgba(50, 50, 50, 0.51) 47.4%, rgba(255, 255, 255, 0.00) 100%) 1', borderImageSlice: '1',}} role="navigation">
+    <nav className=" z-20 flex justify-between items-center h-[10%]  sm:px-12 px-5 text-black sticky top-0 bg-[#17171B]" style={{borderBottom: '3px solid', borderImage: 'linear-gradient(270deg, rgba(255, 255, 255, 0.00) 0%, rgba(50, 50, 50, 0.51) 47.4%, rgba(255, 255, 255, 0.00) 100%) 1', borderImageSlice: '1',}} role="navigation">
       <div className='flex gap-36 items-center'>
         <Link href="/">
           <Image src={logo} alt="logo" />
