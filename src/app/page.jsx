@@ -6,7 +6,7 @@ export default async function Home() {
   return (
     <div className="lm:h-[90%] flex">
         <LeftSection upcoming={data.upcoming} />
-        <RightSection popular={data.popular} continueWatching={data.continueWatching} />
+        <RightSection popular={data.popular} randomMovie={data.popular[Math.floor(Math.random()*data.popular.length)]} continueWatching={data.continueWatching} />
     </div>
   )
 }

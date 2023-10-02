@@ -76,7 +76,7 @@ export default function ContentCard ({item, section}) {
             {section !== 'playing' && <p className='font-bold max-w-[100px] truncate'>{item.original_title}</p>}
             {section === 'new-trailers' && <><span className='mr-1 text-[#CACACA] font-medium'>Country:</span><span className='mr-1 text-[#CACACA]'>{item.production_countries[0].name === 'United States of America' ? 'USA' : item.production_countries[0].name}</span></>}
             {(section === 'new-trailers' || section === 'continue' || section === 'search') && <p className='text-[#CACACA]'>{item.release_date}</p>}
-            {section === 'popular' && <p className='text-[#CACACA]'>{item.genres[0].name} / {item.genres[1].name}</p>}
+            {section === 'popular' && <p className='text-[#CACACA]'>{item.genres[0].name} / {item.genres[1]?.name}</p>}
           </div>
         </div>
 
