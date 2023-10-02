@@ -1,6 +1,7 @@
 import NavBar from '@/components/NavBar'
 import './globals.css'
 import { Quicksand } from 'next/font/google'
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 const quicksand = Quicksand({ subsets: ['latin'] })
 
@@ -16,12 +17,14 @@ export default function RootLayout({ children }) {
         <link href={`https://fonts.googleapis.com/css?family=Quicksand`} rel="stylesheet"/>
         <link href={`https://fonts.googleapis.com/css?family=Axiforma`} rel="stylesheet"/>
       </head>
-      <body className={quicksand.className}>
-        <div className='h-screen'>
-          <NavBar />
-          {children}
-        </div>
-      </body>
+      <UserProvider>
+        <body className={quicksand.className}>
+          <div className='h-screen'>
+            <NavBar />
+            {children}
+          </div>
+        </body>
+      </UserProvider>
     </html>
   )
 }

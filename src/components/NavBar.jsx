@@ -12,8 +12,10 @@ import SearchBar from './SearchBar';
 import hamburger from '../assets/hamburger.svg';
 import { useState } from 'react';
 import cross from '../assets/cross.svg';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function NavBar () {
+  const { user, error, isLoading } = useUser();
   const currentPath = usePathname();
   const [menuOpen, setMenuOpen] = useState(false)
   const navItems = [
@@ -54,6 +56,9 @@ export default function NavBar () {
             <Image src={profilePic} alt="profileArrow" />
             <Image src={profileArrow} alt="profileArrow" />
           </div>
+          {!user && <a className='text-white' href="/api/auth/login">Login</a>}
+          {user && <a className='text-white' href="/api/auth/logout">Logout</a>}
+          {user && <p className='text-white'>{user.name}</p>}
         </div>
       </div>
       <PhoneMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} navItems={navItems} currentPath={currentPath}/>
