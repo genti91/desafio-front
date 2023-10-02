@@ -8,7 +8,7 @@ export default async function Search({searchParams}) {
   return (
     <div className='flex flex-col gap-5 h-[90%] 2xl:w-[72vw] w-full mx-auto py-10 2xl:px-auto xs:px-16 px-3'>
       <div className='flex justify-between items-center'>
-        <p className='font-bold text-lg'>Search results for "{searchParams.s}"</p>
+        <p className='font-bold text-lg'>Search results for &quot;{searchParams.s}&quot;</p>
         <Link href='/'>
           <div className='flex gap-[10px] items-center cursor-pointer'>
             <p className='text-[12px] text-[#606265] font-medium'>Go Back</p>
